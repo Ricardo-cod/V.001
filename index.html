@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogTech Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>LogTech Academy</h1>
+        <div id="theme-toggle" onclick="toggleTheme()">
+            <i id="theme-icon" class="fas fa-sun"></i>
+        </div>
+    </header>
+    <div class="container">
+        <div id="user-name-display"></div> 
+
+        <div class="login" id="student-login">
+            <h2>Login Aluno</h2>
+            <input type="text" id="student-name" placeholder="Nome do Aluno" required>
+            <input type="password" id="student-password" placeholder="Senha" required>
+            <input type="text" id="student-room" placeholder="Sala" required>
+            <button onclick="login('student')">Login</button>
+            <p id="student-error-message" class="error-message"></p>
+        </div>
+        
+        <div class="login" id="teacher-login">
+            <h2>Login Professor</h2>
+            <input type="text" id="teacher-name" placeholder="Nome do Professor" required>
+            <input type="password" id="teacher-password" placeholder="Senha" required>
+            <input type="text" id="teacher-room" placeholder="Sala" required>
+            <button onclick="login('teacher')">Login</button>
+            <p id="teacher-error-message" class="error-message"></p>
+        </div>
+
+        <div class="dashboard" style="display: none;">
+            <h2 id="welcome-message"></h2>
+            <div id="courses-button" style="display: none;">
+                <button onclick="openFloatingWindow()">Cursos LogTech</button>
+            </div>
+            <div id="teacher-activity-area" style="display: none;">
+                <h3>Enviar Atividade</h3>
+                <textarea id="activity-content" placeholder="Digite a atividade aqui..." rows="4"></textarea>
+                <button onclick="sendActivity()">Enviar</button>
+                <p id="activity-message" class="success-message"></p>
+            </div>
+            <div id="student-activities-area" style="display: none;">
+                <h3>Atividades Recebidas</h3>
+                <ul id="activities-list"></ul>
+            </div>
+            <div id="teacher-returned-activities-area" style="display: none;">
+                <h3>Atividades Devolvidas</h3>
+                <ul id="returned-activities-list"></ul>
+            </div>
+            <button onclick="logout()">Sair</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
